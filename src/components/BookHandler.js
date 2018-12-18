@@ -19,7 +19,7 @@ class BookHandler extends Component {
         //defining 'move' as a default shelf so that I can omit this option on books that aren't on a shelf
         //If I define as 'none' these books will assume the "currentlyReading" as a default shelf and user 
         //will be unable to select the currentReading rigth away.
-        let currentShelf = 'move'
+        let currentShelf = 'none'
 
         for ( let [ , value] of Object.entries(books) ){
             //console.log(value.id)
@@ -38,11 +38,13 @@ class BookHandler extends Component {
                         <option value="currentlyReading" >Currently Reading</option>
                         <option value="wantToRead"  >Want to Read</option>
                         <option value="read"  >Read</option>
-                        { 
+                        <option value="none"  >None</option> 
+                        {/* 
                             // if the book is not on shelf then the 'remove' option should be omitted
+                            //current value should be initialized with "move" to work, and the line above (with None) should be removed
                             currentShelf !== "move" &&
-                            <option value="none"  >Remove</option> 
-                        }
+                            <option value="none"  >None</option> 
+                        */}
                     </select>
                     {
                         //loging books values to ensure that it has only books that are already in a shelf
